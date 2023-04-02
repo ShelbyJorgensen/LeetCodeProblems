@@ -1,35 +1,16 @@
 /*
- * Given the head of a singly linked list, return the middle node of the linked list.
+ * Given a 2D integer array matrix, return the transpose of matrix.
+ * The transpose of a matrix is the matrix flipped over its main diagonal, switching the matrix's row and column indices.
  */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 class Solution {
-    public ListNode middleNode(ListNode head) {
-        ListNode temp = head;
-        int target = 0;
-
-        while(temp != null) {
-            temp = temp.next;
-            target++;
-        }
-        target = (target / 2);
-        int count = 0;
-        while(head != null) {
-            if(count == target) {
-                return head;
+    public int[][] transpose(int[][] matrix) {
+        int[][] result = new int[matrix[0].length][matrix.length];
+        for(int i = 0; i < matrix.length; ++i) {
+            for(int j = 0; j < matrix[0].length; ++j) {
+                result[j][i] = matrix[i][j];
             }
-            head = head.next;
-            count++;
         }
-        return null;
+        return result;
     }
 }
